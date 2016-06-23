@@ -15,6 +15,14 @@ window.onload = function() {
   document.getElementById("nokp").focus();
 };
 </script>
+<script language="JavaScript" type="text/JavaScript">
+var x=12;//nr characters
+function submitT(t,f){
+if(t.value.length==x){
+f.submit()
+}
+}
+</script>
     <head>
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
@@ -38,11 +46,11 @@ window.onload = function() {
             <header>
             </header>
             <section>				
-                <div id="container_demo" >
+                <div id="container_demo">
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
-                        <div id="login" class="animate form">
+                        <div id="login" class="animate form" style="background-color:orange;">
                             <form action="actionKeluarMasuk.php" autocomplete="on" method="POST">
                         <h1><img src="images/logociast.png" width="100" height="120"><br />Sistem Keluar Masuk Pelajar</h1>
 						<?php if(isset($_SESSION['error_message'])){
@@ -61,7 +69,7 @@ window.onload = function() {
   <br />					
                                 <p> 
                                     <label data-icon="u" > Scan Barcode </label>
-                                    <input id="nokp" name="nokp" onmouseover="this.focus();" type="number" placeholder="Scan NDP">
+                                    <input id="nokp" name="nokp" autofocus onkeyup="submitT(this,this.form)" type="number" placeholder="Scan Card" style="background-color:white;">
                                 </p>
 								<br />
                                 <p class="login button"> 
